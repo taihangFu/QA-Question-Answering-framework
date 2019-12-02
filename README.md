@@ -1,27 +1,30 @@
 # QA-Question-Answering-framework
 
-The QA framework read document/text and answer questions about it. It is using  Sequence model, different NLP features and data of Microsoft Research WikiQA Corpus.
+The QA framework read document/text and answer questions about it. It is using Sequence model, different NLP features and data of Microsoft Research [WikiQA Corpus](https://www.aclweb.org/anthology/D15-1237/).
 
 ## Data
-* Raw Data 
-  * QuestionID
-  * Question
-  * DocumentID 
-  * DocumentTitle
-  * SentenceID
-  * Sentence
-  * Label (answer sentence, if label=1)
+### Raw Data
 
-* Data Wrangling 
+The [train](WikiQA-train.tsv) and [test](WikiQA-test.tsv) data set contains the following attributes:
+* QuestionID
+* Question
+* DocumentID 
+* DocumentTitle
+* SentenceID
+* Sentence
+* Label (answer sentence, if label=1)
 
-construct three different types of data from raw for training the model: Question, Document and Answer as following figure. To construct the document data, we concatenate (with space) each sentence that has same DocumentID. To construct the answer data, we use the sentence that has Label as 1.
+
+### Data Wrangling 
+
+Construct three different types of data from raw for training the model: Question, Document and Answer as following figure. To construct the document data, we concatenate (with space) each sentence that has same DocumentID. To construct the answer data, we use the sentence that has Label as 1.
 
 The following figure shows the original raw data:
 ![](media/raw_data.png)
 
 
 ## QA Framework
-### please refer to the [report.pdf](report.pdf) for more details
+### Please refer to the [report.pdf](report.pdf) for more details
 
 ### Word Embeddings and Feature Extraction
 The pre-trained word embedding layer used is **gloVe** with word vector size = 100, which is the size that is popular in industry and  it is reasonable in terms of computational time and performance as having largest size does not seems to improve performance significantly while computational time and memory usage increases the same time.
